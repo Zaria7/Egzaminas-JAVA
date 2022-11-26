@@ -11,7 +11,8 @@ public interface PacientuDAO {
     Pacientas issaugotiPacienta(Pacientas pacientas);
     Pacientas gautiPacientaPagalId(long id);
     List<Pacientas> gautiVisusPacientus();
-    List<Pacientas> gautiPacientusPagalVakcina(long id);
+    List<Pacientas> gautiPacientusSuVakcinomis();
+    List<Pacientas> gautiPacientusPagalVakcina(String pavadinimas);
     List<Optional<Vakcina>> kokiasVakcinasGavoPacientas(Long id); //paciento id gauna 3 vakcinas ir datas
     void istringiPacienta(long id);
 

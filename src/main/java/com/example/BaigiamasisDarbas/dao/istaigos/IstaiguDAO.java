@@ -12,7 +12,7 @@ public interface IstaiguDAO {
     Optional<SkiepijimoIstaiga> gautiSkiepijimoIstaigaPagalId(long id);
     List<SkiepijimoIstaiga> gautiVisasSkiepijimoIstaigas();
     List<Optional<Pacientas>> gautiPacientusPagalIstaiga(long id);
-    List<Long> gautiPacientuIdPagalIstaiga(long id);
+    Optional<List<Long>> gautiPacientuIdPagalIstaiga(long id);
     void istringiSkiepijimoIstaiga(long id);
     boolean arYraVakcinaIstaigojePagalId(long istaigosId, long vakcinosId);
 }

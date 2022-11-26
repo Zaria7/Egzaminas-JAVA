@@ -16,11 +16,10 @@ public class Pacientas {
     private Long pirmaDoze;
     private Long antraDoze;
     private Long treciaDoze;
-    private String komplikacijos;
 
     public Pacientas() {}
 
-    public Pacientas(long id, String vardas, String pavarde, int amzius, Long istaigosId, Long pirmaDoze, Long antraDoze, Long treciaDoze, String komplikacijos) {
+    public Pacientas(long id, String vardas, String pavarde, int amzius, Long istaigosId, Long pirmaDoze, Long antraDoze, Long treciaDoze) {
         this.id = id;
         this.vardas = vardas;
         this.pavarde = pavarde;
@@ -29,7 +28,6 @@ public class Pacientas {
         this.pirmaDoze = pirmaDoze;
         this.antraDoze = antraDoze;
         this.treciaDoze = treciaDoze;
-        this.komplikacijos = komplikacijos;
     }
 
     public long getId() {
@@ -96,14 +94,6 @@ public class Pacientas {
         this.treciaDoze = treciaDoze;
     }
 
-    public String getKomplikacijos() {
-        return komplikacijos;
-    }
-
-    public void setKomplikacijos(String komplikacijos) {
-        this.komplikacijos = komplikacijos;
-    }
-
     @Override
     public String toString() {
         return "Pacientas{" +
@@ -115,7 +105,6 @@ public class Pacientas {
                 ", pirmaDoze=" + pirmaDoze +
                 ", antraDoze=" + antraDoze +
                 ", treciaDoze=" + treciaDoze +
-                ", komplikacijos='" + komplikacijos + '\'' +
                 '}';
     }
 }

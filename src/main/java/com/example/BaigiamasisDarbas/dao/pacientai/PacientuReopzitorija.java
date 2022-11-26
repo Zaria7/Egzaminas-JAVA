@@ -44,8 +44,18 @@ public class PacientuReopzitorija implements PacientuDAO{
     }
 
     @Override
-    public List<Pacientas> gautiPacientusPagalVakcina(long id) {
-        
+    public List<Pacientas> gautiPacientusSuVakcinomis() {
+        return pacientuJpa.gautiPacientusSuVakcinomis();
+    }
+
+    @Override
+    public List<Pacientas> gautiPacientusPagalVakcina(String pavainimas) {
+        var pacientai = gautiPacientusSuVakcinomis();
+        var filtruotiPagalVakcinosPavadinima = pacientai
+                .stream()
+                .filter(pacientas -> pacientas.getPirmaDoze().equals(pavainimas));
+
+
         return null; //todo
     }
 

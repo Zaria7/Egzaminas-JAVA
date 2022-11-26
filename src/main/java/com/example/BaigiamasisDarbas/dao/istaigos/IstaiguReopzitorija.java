@@ -7,6 +7,7 @@ import com.example.BaigiamasisDarbas.dto.SkiepijimoIstaiga;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,12 +49,13 @@ public class IstaiguReopzitorija implements IstaiguDAO{
 
     @Override
     public List<Optional<Pacientas>> gautiPacientusPagalIstaiga(long id) {
-        return gautiPacientuIdPagalIstaiga(id).stream().map(pacientuJpa::findById).toList();
+//        return gautiPacientuIdPagalIstaiga(id).stream().map(pacientuJpa::findById).toList();
+        return null;
     }
 
     @Override
-    public List<Long> gautiPacientuIdPagalIstaiga(long id) {
-        return istaiguJpa.getById(id).getPacientuId();
+    public Optional<List<Long>> gautiPacientuIdPagalIstaiga(long id) {
+        return null;
     }
 
     @Override
