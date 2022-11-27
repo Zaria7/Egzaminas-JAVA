@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class VakcinuReopzitorija implements VakcinuDAO {
+public class VakcinuRepozitorija implements VakcinuDAO {
     private final VakcinuJpa vakcinuJpa;
 
-    public VakcinuReopzitorija(@Autowired VakcinuJpa vakcinuJpa) {
+    public VakcinuRepozitorija(@Autowired VakcinuJpa vakcinuJpa) {
         this.vakcinuJpa = vakcinuJpa;
     }
 
