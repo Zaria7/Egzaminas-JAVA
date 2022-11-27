@@ -12,19 +12,17 @@ public class Pacientas {
     private String vardas;
     private String pavarde;
     private int amzius;
-    private Long istaigosId;
     private Long pirmaDoze;
     private Long antraDoze;
     private Long treciaDoze;
 
     public Pacientas() {}
 
-    public Pacientas(long id, String vardas, String pavarde, int amzius, Long istaigosId, Long pirmaDoze, Long antraDoze, Long treciaDoze) {
+    public Pacientas(long id, String vardas, String pavarde, int amzius, Long pirmaDoze, Long antraDoze, Long treciaDoze) {
         this.id = id;
         this.vardas = vardas;
         this.pavarde = pavarde;
         this.amzius = amzius;
-        this.istaigosId = istaigosId;
         this.pirmaDoze = pirmaDoze;
         this.antraDoze = antraDoze;
         this.treciaDoze = treciaDoze;
@@ -62,14 +60,6 @@ public class Pacientas {
         this.amzius = amzius;
     }
 
-    public Long getIstaigosId() {
-        return istaigosId;
-    }
-
-    public void setIstaigosId(Long istaigosId) {
-        this.istaigosId = istaigosId;
-    }
-
     public Long getPirmaDoze() {
         return pirmaDoze;
     }
@@ -101,7 +91,6 @@ public class Pacientas {
                 ", vardas='" + vardas + '\'' +
                 ", pavarde='" + pavarde + '\'' +
                 ", amzius=" + amzius +
-                ", istaigosId=" + istaigosId +
                 ", pirmaDoze=" + pirmaDoze +
                 ", antraDoze=" + antraDoze +
                 ", treciaDoze=" + treciaDoze +

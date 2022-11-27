@@ -2,22 +2,20 @@ package com.example.BaigiamasisDarbas.dao.istaigos;
 
 import com.example.BaigiamasisDarbas.dao.pacientai.PacientuJpa;
 import com.example.BaigiamasisDarbas.dao.vakcinos.VakcinuJpa;
-import com.example.BaigiamasisDarbas.dto.Pacientas;
 import com.example.BaigiamasisDarbas.dto.SkiepijimoIstaiga;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
 @Component
-public class IstaiguReopzitorija implements IstaiguDAO{
+public class IstaiguRepozitorija implements IstaiguDAO{
     private final IstaiguJpa istaiguJpa;
     private final PacientuJpa pacientuJpa;
     private final VakcinuJpa vakcinuJpa;
 
-    public IstaiguReopzitorija(
+    public IstaiguRepozitorija(
         @Autowired IstaiguJpa istaiguJpa,
         @Autowired PacientuJpa pacientuJpa,
         @Autowired VakcinuJpa vakcinuJpa

@@ -7,17 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
-public class PacientuReopzitorija implements PacientuDAO{
+public class PacientuRepozitorija implements PacientuDAO{
     private final PacientuJpa pacientuJpa;
     private final VakcinuJpa vakcinuJpa;
 
-    public PacientuReopzitorija(
+    public PacientuRepozitorija(
             @Autowired PacientuJpa pacientuJpa,
             @Autowired VakcinuJpa vakcinuJpa
     ) {
@@ -46,24 +44,13 @@ public class PacientuReopzitorija implements PacientuDAO{
     }
 
     @Override
-    public Pacientas gautiPacientaPagalId(long id) {
-        return pacientuJpa.getReferenceById(id);
+    public Optional<Pacientas> gautiPacientaPagalId(long id) {
+        return pacientuJpa.findById(id);
     }
 
     @Override
     public List<Pacientas> gautiVisusPacientus() {
         return pacientuJpa.findAll();
-    }
-
-    @Override
-    public List<Optional<Vakcina>> kokiasVakcinasGavoPacientas(Long id) {
-        var pacientas = gautiPacientaPagalId(id);
-        List<Optional<Vakcina>> vakcinuList = Arrays.asList(
-                vakcinuJpa.findById(pacientas.getPirmaDoze()),
-                vakcinuJpa.findById(pacientas.getAntraDoze()),
-                vakcinuJpa.findById(pacientas.getAntraDoze())
-        );
-        return vakcinuList;
     }
 
     @Override
