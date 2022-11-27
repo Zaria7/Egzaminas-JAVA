@@ -7,12 +7,4 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PacientuJpa extends JpaRepository<Pacientas, Long> {
-
-    @Query(value = """
-            SELECT * FROM pacientai
-            INNER JOIN vakcinos
-            ON pacientai.pirmaDoze = vakcinos.id
-            """,
-    nativeQuery = true)
-    List<Pacientas> gautiPacientusSuVakcinomis();
 }

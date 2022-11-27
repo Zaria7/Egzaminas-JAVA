@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class PacientuReopzitorija implements PacientuDAO{
@@ -24,8 +26,18 @@ public class PacientuReopzitorija implements PacientuDAO{
     }
 
     @Override
-    public Pacientas sukurtiPacienta(Pacientas pacientas) {
-        return null; //todo
+    public String sukurtiPacienta(Pacientas pacientas) {
+        var naujasId = pacientas.getId();
+        boolean ifExists = gautiVisusPacientus()
+                .stream()
+                .mapToLong(Pacientas::getId)
+                .anyMatch(id -> naujasId == id);
+        if (ifExists) {
+            return "Toks įrašas jau yea";
+        } else {
+            pacientuJpa.save(pacientas);
+            return "Pacientas sėkmingai sukurtas";
+        }
     }
 
     @Override
@@ -41,22 +53,6 @@ public class PacientuReopzitorija implements PacientuDAO{
     @Override
     public List<Pacientas> gautiVisusPacientus() {
         return pacientuJpa.findAll();
-    }
-
-    @Override
-    public List<Pacientas> gautiPacientusSuVakcinomis() {
-        return pacientuJpa.gautiPacientusSuVakcinomis();
-    }
-
-    @Override
-    public List<Pacientas> gautiPacientusPagalVakcina(String pavainimas) {
-        var pacientai = gautiPacientusSuVakcinomis();
-        var filtruotiPagalVakcinosPavadinima = pacientai
-                .stream()
-                .filter(pacientas -> pacientas.getPirmaDoze().equals(pavainimas));
-
-
-        return null; //todo
     }
 
     @Override

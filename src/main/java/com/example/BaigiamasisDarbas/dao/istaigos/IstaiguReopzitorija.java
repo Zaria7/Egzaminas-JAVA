@@ -33,8 +33,18 @@ public class IstaiguReopzitorija implements IstaiguDAO{
     }
 
     @Override
-    public SkiepijimoIstaiga sukurtiSkiepijimoIstaiga(SkiepijimoIstaiga skiepijimoIstaiga) {
-        return null; //todo: method
+    public String sukurtiSkiepijimoIstaiga(SkiepijimoIstaiga skiepijimoIstaiga) {
+        var naujasId = skiepijimoIstaiga.getId();
+        boolean ifExists = gautiVisasSkiepijimoIstaigas()
+                .stream()
+                .mapToLong(SkiepijimoIstaiga::getId)
+                .anyMatch(id -> naujasId == id);
+        if(ifExists) {
+            return "Toks įrašas jau yra";
+        } else {
+            istaiguJpa.save(skiepijimoIstaiga);
+            return "Vakcina sėkmingai sukurta";
+        }
     }
 
     @Override
@@ -48,24 +58,7 @@ public class IstaiguReopzitorija implements IstaiguDAO{
     }
 
     @Override
-    public List<Optional<Pacientas>> gautiPacientusPagalIstaiga(long id) {
-//        return gautiPacientuIdPagalIstaiga(id).stream().map(pacientuJpa::findById).toList();
-        return null;
-    }
-
-    @Override
-    public Optional<List<Long>> gautiPacientuIdPagalIstaiga(long id) {
-        return null;
-    }
-
-    @Override
     public void istringiSkiepijimoIstaiga(long id) {
         istaiguJpa.deleteById(id);
-    }
-
-    @Override
-    public boolean arYraVakcinaIstaigojePagalId(long istaigosId, long vakcinosId) {
-
-        return false; //todo: method
     }
 }

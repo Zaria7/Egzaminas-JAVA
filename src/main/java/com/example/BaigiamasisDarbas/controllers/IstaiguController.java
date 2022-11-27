@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class IstaigosController {
+public class IstaiguController {
     private IstaiguReopzitorija istaiguReopzitorija;
 
-    public IstaigosController(@Autowired IstaiguReopzitorija istaiguReopzitorija) {
+    public IstaiguController(@Autowired IstaiguReopzitorija istaiguReopzitorija) {
         this.istaiguReopzitorija = istaiguReopzitorija;
     }
 
