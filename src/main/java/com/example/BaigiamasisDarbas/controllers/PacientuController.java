@@ -28,18 +28,19 @@ public class PacientuController {
     }
 
     @GetMapping("/api/pacientai/{id}")
-    public Optional<Pacientas> gautiPacientaPagalId(@RequestParam Long id){
+    public Optional<Pacientas> gautiPacientaPagalId(@PathVariable Long id){
         return pacientuRepozitorija.gautiPacientaPagalId(id);
     }
 
     @DeleteMapping("/api/pacientai/{id}")
-    public void istrintiPacienta(@RequestParam Long id) {
+    public void istrintiPacienta(@PathVariable(name = "id") Long id) {
         pacientuRepozitorija.istringiPacienta(id);
+        System.out.println("deleted where id: " + id);
     }
 
     @PutMapping("/api/pacientai/{id}")
     public Optional<Pacientas> atnaujintiPacienta (
-        @RequestParam Long id,
+        @PathVariable Long id,
         @RequestBody Pacientas naujiDomenys
     ) {
         var naujianmasIrasas = pacientuRepozitorija.gautiPacientaPagalId(id)

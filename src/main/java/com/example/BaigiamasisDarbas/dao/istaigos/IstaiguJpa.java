@@ -9,10 +9,4 @@ import java.util.List;
 
 public interface IstaiguJpa extends JpaRepository<SkiepijimoIstaiga, Long> {
 
-    @Query( value = """
-            SELECT * FROM pacientai 
-            LEFT JOIN skiepijimo_staigos
-            ON skiepinimo_istaigos.""",
-            nativeQuery = true)
-    List<Pacientas> gautiPacientusPagalIstaiga(long istaigosId);
 }

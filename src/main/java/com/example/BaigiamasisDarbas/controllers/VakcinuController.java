@@ -26,18 +26,18 @@ public class VakcinuController {
     public List<Vakcina> gautiVakcinas() { return vakcinuRepozitorija.gautiVisasVakcinas();}
 
     @GetMapping("/api/vakcinos/{id}")
-    public Optional<Vakcina> gautiVakcinaPagalId(@RequestParam Long id) {
+    public Optional<Vakcina> gautiVakcinaPagalId(@PathVariable Long id) {
         return vakcinuRepozitorija.gautiVakcinaPagalId(id);
     }
 
     @DeleteMapping("/api/vakcinos/{id}")
-    public void istringiVakcinaPgalaId(@RequestParam Long id) {
+    public void istringiVakcinaPgalaId(@PathVariable(name = "id") Long id) {
         vakcinuRepozitorija.istringiVakcina(id);
     }
 
     @PutMapping("/api/vakcinos/{id}")
     public Optional<Vakcina> atnaujintiVakcina (
-            @RequestParam Long id,
+            @PathVariable Long id,
             @RequestBody Vakcina naujaVakcinosInfo
     ) {
         var nauinamasIrasas = vakcinuRepozitorija.gautiVakcinaPagalId(id)

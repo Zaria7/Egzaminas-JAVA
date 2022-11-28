@@ -12,17 +12,11 @@ import java.util.Optional;
 @Component
 public class IstaiguRepozitorija implements IstaiguDAO{
     private final IstaiguJpa istaiguJpa;
-    private final PacientuJpa pacientuJpa;
-    private final VakcinuJpa vakcinuJpa;
 
     public IstaiguRepozitorija(
-        @Autowired IstaiguJpa istaiguJpa,
-        @Autowired PacientuJpa pacientuJpa,
-        @Autowired VakcinuJpa vakcinuJpa
+        @Autowired IstaiguJpa istaiguJpa
     ) {
         this.istaiguJpa = istaiguJpa;
-        this.pacientuJpa = pacientuJpa;
-        this.vakcinuJpa = vakcinuJpa;
     }
 
     @Override

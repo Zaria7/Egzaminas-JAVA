@@ -32,14 +32,14 @@ public class IstaiguController {
         return istaiguRepozitorija.gautiSkiepijimoIstaigaPagalId(id);
     }
 
-    @DeleteMapping("/api/istaigos")
-    public void istrintiIstaiga(@RequestParam Long id) {
+    @DeleteMapping("/api/istaigos/{id}")
+    public void istrintiIstaiga(@PathVariable(name = "id") Long id) {
         istaiguRepozitorija.istringiSkiepijimoIstaiga(id);
     }
 
     @PutMapping("/api/istaigos/{id}")
     public Optional<SkiepijimoIstaiga> atnaujintiIstaiga(
-            @RequestParam Long id,
+            @PathVariable Long id,
             @RequestBody SkiepijimoIstaiga naujaIstaigosInfo
     ) {
         var naujinamasIrasas = istaiguRepozitorija.gautiSkiepijimoIstaigaPagalId(id)
