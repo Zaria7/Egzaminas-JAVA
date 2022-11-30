@@ -10,14 +10,15 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light" id="nav-link">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Stop Covid-19</a>
+          <a class="navbar-brand" href="#">Covid-19. Pranešk!</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -27,17 +28,17 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Vakcinos</a>
+                <a class="nav-link" href="#mygtukai">Redaguoti įrašus</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Punktai</a>
+                <a class="nav-link" href="#vakcinos">Vakcinos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#istaigos">Skiepyjimo įstaigos</a>
               </li>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Punktai</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Pranešti apie komplikaciją</a>
+                <a class="nav-link" href="#pacientai-sistemoje">Pacientai sistemoje</a>
               </li>
             </ul>
           </div>
@@ -45,24 +46,223 @@
       </nav>
   </header>
   <main>
-        
-  </main>
-  <footer>
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <section class="mt-4 mb-4" id="vakcinos">   
+      <div class="container">
+        <!-- //pasirinkti vakcina -->
+        <div class="row">
+          <h4>Pasirinkti vakcina</h4>
+          <div class="col-sm-12 col-md-4">
+            <select class="form-select" multiple aria-label="multiple select example" id="vakcinosSelectorius">
+              <option selected value="1 vakcina">One</option>
+              <option value="2 vakcina">Two</option>
+              <option value="3 vakcina">Three</option>
+            </select>
+          </div>
 
+          <!-- //vakcinu lentele -->
+          <div class="col-sm-12 col-md-8">
+            <div class="container">
+              <div class="row">
+                <h4 class="border-bottom" id="testTekstas">Komplikacijos</h4>
+              </div>
+              <div class="row justify-content-between align-items-bottom">
+                <div class="col-sm-12 col-lg-2 border-bottom">Nėra: <span>20</span>%</div>
+                <div class="col-sm-12 col-lg-2 border-bottom">Lengvos: <span>20</span>%</div>
+                <div class="col-sm-12 col-lg-2 border-bottom">Vidutinės: <span>20</span>%</div>
+                <div class="col-sm-12 col-lg-2 border-bottom">Hospitalizacija: <span>20</span>%</div>
+                <div class="col-sm-12 col-lg-2 border-bottom">Mistis: <span>20</span>%</div>
+              </div>
+
+              <table class="table" id="vakcinuLentele">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Pavadinimas</th>
+                    <th scope="col">Pagaminimo data</th>
+                    <th scope="col">Kilmės šalis</th>
+                    <th scope="col">Komplikacijos</th>
+                    <th scope="col">Istaigos ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="b-example-divider"></div>
+
+    <section class="border-top border-bottom px-4" id="mygtukai">
+      <div class="container gt-4">
+
+        <p>
+          <a class="btn btn-secondary mt-4" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Redaguoti
+          </a>
+
+        </p>
+        <div class="collapse " id="collapseExample1">
+          <div class="card card-body d-grid gap-2 d-md-block mb-4">
+            <button class="btn btn-outline-warning" type="button">Vakciną</button>
+            <button class="btn btn-outline-warning" type="button">Pacientą</button>
+            <button class="btn btn-outline-warning" type="button">Įstaigą</button>
+          </div>
+        </div>
+
+        <p>
+          <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Istrinti
+          </a>
+        </p>
+
+        <div class="collapse" id="collapseExample2">
+          <div class="card card-body d-grid gap-2 d-md-block mb-4">
+            <button class="btn btn-outline-danger" type="button">Vakciną</button>
+            <button class="btn btn-outline-danger" type="button">Pacientą</button>
+            <button class="btn btn-outline-danger" type="button">Įstaigą</button>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="b-example-divider"></div>
+
+    <section id="istaigos">   
+      <div class="container mt-4 mb-4">
+        <div class="row">
+          <h4 id="istaiguTekstas">Pasirinkti įstaigą</h4>
+          <div class="col-sm-12 col-md-4">
+            <select class="form-select" multiple aria-label="multiple select example" id="istaiguSelectorius">
+              <option selected  value="1 istaiga">One</option>
+              <option value="2 istaiga">Two</option>
+              <option value="3 istaiga">Three</option>
+            </select>
+          </div>
+
+          <!-- //istaigu lentele -->
+          <div class="col-sm-12 col-md-8">
+            <div class="container">
+              <table class="table" id="istaiguLentele">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="b-example-divider"></div>
+
+    <section id="pacientai-sistemoje">   
+      <div class="container mt-4 mb-4">
+        <!-- //pasirinkti vakcina -->
+        <div class="row">
+          <h4>Pacientai sistemoje</h4>
+          <div class="col-sm-12 col-md-4">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nihil maxime ducimus, ad molestiae ipsum excepturi asperiores dolores deserunt maiores quas quisquam repudiandae eius cupiditate ex facilis! At, assumenda velit, temporibus quia sunt, ratione facilis expedita hic quasi sint vel!
+            </p>
+          </div>
+
+          <!-- //pacientu lentele -->
+          <div class="col-sm-12 col-md-8">
+            <div class="container">
+              <table class="table" id="pacientuLentele">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <div class="b-example-divider"></div>
+
+  <footer>
+    <a class="btn btn-primary m-2" href="#nav-link" role="button" id="home-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+      </svg>
+    </a>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-center align-items-center my-4">
+          <div>
+            Nacionalinis medicinos kontrolės centras, 2022  info@medcontrol.lt
+          </div>
         </footer>
     </div>
-    <!-- place footer here -->
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
+  <script src="main.js"></script>
 </body>
 
 </html>

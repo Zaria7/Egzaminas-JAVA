@@ -27,6 +27,7 @@ public class Vakcina {
         this.komplikacijos = komplikacijos;
     }
 
+
     public Long getId() {
         return id;
     }
