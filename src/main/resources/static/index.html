@@ -45,6 +45,7 @@
         </div>
       </nav>
   </header>
+
   <main>
     <section class="mt-4 mb-4" id="vakcinos">   
       <div class="container">
@@ -105,9 +106,9 @@
         </p>
         <div class="collapse " id="collapseExample1">
           <div class="card card-body d-grid gap-2 d-md-block mb-4">
-            <button class="btn btn-outline-primary" type="button">Vakciną</button>
-            <button class="btn btn-outline-primary" type="button">Pacientą</button>
-            <button class="btn btn-outline-primary" type="button">Įstaigą</button>
+            <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#exampleModal1">Vakciną</button>
+            <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#exampleModal2">Pacientą</button>
+            <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#exampleModal3">Įstaigą</button>
           </div>
         </div>
 
@@ -118,6 +119,8 @@
         </p>
 
         <div class="collapse " id="collapseExample2">
+          <!--            prideti selection options ir į modal išmesti jau su pasirinkimu-->
+
           <div class="card card-body d-grid gap-2 d-md-block mb-4">
             <button class="btn btn-outline-warning" type="button">Vakciną</button>
             <button class="btn btn-outline-warning" type="button">Pacientą</button>
@@ -133,6 +136,8 @@
 
         <div class="collapse" id="collapseExample3">
           <div class="card card-body d-grid gap-2 d-md-block mb-4">
+            <!--            prideti selection options ir į modal išmesti jau su pasirinkimu-->
+
             <button class="btn btn-outline-danger" type="button">Vakciną</button>
             <button class="btn btn-outline-danger" type="button">Pacientą</button>
             <button class="btn btn-outline-danger" type="button">Įstaigą</button>
@@ -232,13 +237,11 @@
         </footer>
     </div>
   </footer>
-  <!-- Bootstrap JavaScript Libraries -->
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
   <script src="main.js"></script>
 </body>
 

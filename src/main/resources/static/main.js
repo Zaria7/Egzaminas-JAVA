@@ -176,7 +176,3 @@ function sudetiPavadinimusIOpcijas(pavadinimai, array) {
     
 
 window.addEventListener("load", start, false);
-
-TESThomeBATONAS.addEventListener('click', (e) => {
-    console.log("Mygtukos su namuku testas");
-});
