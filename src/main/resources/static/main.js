@@ -16,6 +16,12 @@ const testTekstas = document.querySelector("#testTekstas");
 const istaiguTekstas = document.querySelector("#istaiguTekstas");
 const TESThomeBATONAS = document.querySelector("#home-btn");
 
+const komplikacijos0 = document.querySelector('#komplikacijos0');
+const komplikacijos1 = document.querySelector('#komplikacijos1');
+const komplikacijos2 = document.querySelector('#komplikacijos2');
+const komplikacijos3 = document.querySelector('#komplikacijos3');
+const komplikacijos4 = document.querySelector('#komplikacijos4');
+
 // gauti vakcinas
 fetch(linkasVakcinoms, {
     mode: "cors"
@@ -27,6 +33,7 @@ fetch(linkasVakcinoms, {
     })
     .then(duomenys => {
         atkurtiVakcinuLentele(duomenys);
+        atvaizduotiKomplikacijas(duomenys);
         return duomenys;
     })
     .then(duomenys => {
@@ -72,7 +79,35 @@ fetch(linkasPacientams, {
         return duomenys;
     });
 
+const atvaizduotiKomplikacijas = duomenys => {
+    let kompl0rez = 0;
+    let kompl1rez = 0;
+    let kompl2rez = 0;
+    let kompl3rez = 0;
+    let kompl4rez = 0;
+    let totalCount = Object.keys(duomenys).length;
+    
 
+    duomenys.forEach(x => {
+        if (x.komplikacijos.toLowerCase() === 'nera') {
+            kompl0rez++;
+        } else if (x.komplikacijos.toLowerCase() === 'nezymi') {
+            kompl1rez++;
+        } else if (x.komplikacijos.toLowerCase() === 'vidutine') {
+            kompl2rez++;               
+        } else if (x.komplikacijos.toLowerCase() === 'hospitalizacija') {
+            kompl3rez++;               
+        } else if (x.komplikacijos.toLowerCase() === 'mirtis') {
+            kompl4rez++;               
+        }
+    })
+
+    komplikacijos0.textContent = Math.round((kompl0rez / totalCount) * 100);
+    komplikacijos1.textContent = Math.round((kompl1rez / totalCount) * 100);
+    komplikacijos2.textContent = Math.round((kompl2rez / totalCount) * 100);
+    komplikacijos3.textContent = Math.round((kompl3rez / totalCount) * 100);
+    komplikacijos4.textContent = Math.round((kompl4rez / totalCount) * 100);
+};
 
 const atkurtiVakcinuLentele = (duomenys) => {
     vakcinuLentele.innerHTML = "";
@@ -150,8 +185,10 @@ function start(){
 function pasirinktaVakcina(){
     //option is selected
     atkurtiVakcinuLentele(vakcinuDuomenysZali.filter(x => x.pavadinimas === vakcinos.value));
+    atvaizduotiKomplikacijas(vakcinuDuomenysZali.filter(x => x.pavadinimas === vakcinos.value));
     if (vakcinos.value === "all") {
         atkurtiVakcinuLentele(vakcinuDuomenysZali);
+        atvaizduotiKomplikacijas(vakcinuDuomenysZali);
     }
 }
 
